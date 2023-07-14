@@ -9,7 +9,7 @@ const ResumeForm = () => {
             <div class="rounded-t  mb-0 px-6 py-6">
               <div class="text-center flex justify-between">
                 <h6 class="text-blueGray-700 text-xl font-bold">
-                  Your Name's Resume
+                  Your Name's Profile
                 </h6>
                 <button class="bg-[#392d69] text-white active:bg-[#b57bee] font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150" type="button">
                   Download
