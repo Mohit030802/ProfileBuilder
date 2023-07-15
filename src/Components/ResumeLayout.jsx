@@ -1,35 +1,79 @@
 import React from "react";
-import resume from "../assets/resume.jpg";
+import ModeEditIcon from "@mui/icons-material/ModeEdit";
+import DeleteIcon from '@mui/icons-material/Delete';
+import img from '../assets/img.jpg'
+import { Link } from "react-router-dom";
 
-const ResumeLayout = () => {
+const ResumeLayout = ({
+  profile: {
+    
+    firstname,
+    lastname,
+    registration,
+    phoneNo,
+    langKnow,
+    techStack,
+    aboutme,
+    aquote,
+    emailAdd,
+    linkedIn,
+    githubId,
+    collegeName,
+    gradYear,
+    degree,
+    cgpa,
+    experienceOrg,
+    role,
+    expFrom,
+    expTo,
+    exp,
+  },
+}) => {
   return (
     <>
       <div className="bg-gradient-to-t from-[#392d69] to-[#b57bee] mx-auto">
+        <div className="flex justify-end items-end space-x-4 mr-8 -mb-8">
+          <div className="relative flex  justify-end item-end">
+            <div className=" bg-white p-2 rounded-md ">
+              <ModeEditIcon />
+            </div>
+          </div>
+          <div className="relative flex  justify-end item-end">
+            <div className=" bg-white p-2 rounded-md ">
+              <DeleteIcon/>
+            </div>
+          </div>
+         
+        </div>
         <div className="flex">
           <div className=" grid grid-cols-3 m-8 mt-12 h-full  bg-white rounded-lg">
             <div className="col-span-1 bg-[#052f5f] text-white rounded-l-lg">
-              <div className="flex justify-center items-center ml-8 p-6">
+              <div className="flex justify-center items-center ml-8 p-6 ">
                 <img
-                  className="w-[70%] h-[70%] rounded-[50%]"
-                  src={resume}
-                  alt=""
+                  className="w-[70%] h-[70%] rounded-[50%] shadow-md"
+                  src={img}
+                  alt="Image Not Found"
                 />
               </div>
               <div className="flex flex-col font-serif font-semibold  justify-center items-center">
                 <div className="flex flex-col space-y-3 items-center">
-                  <h2 className="text-4xl">Your Name</h2>
-                  <span>Your Registration Number</span>
-                  <span>Your Phone Number</span>
+                  <h2 className="text-4xl">
+                    {firstname} {lastname}
+                  </h2>
+                  <span>{registration}</span>
+                  <span>{phoneNo}</span>
                 </div>
               </div>
               <div className="flex flex-col items-center mt-20 font-serif font-semibold space-y-3">
                 <h1 className="text-4xl">Contact Me at</h1>
-                <span>Your Email</span>
+                <span>{emailAdd}</span>
+
                 <h2>
-                  LinkedIn: <span>Your LinkedIn Id</span>
+                  <Link to={linkedIn}>LinkedIn</Link>
                 </h2>
+
                 <h2>
-                  GitHub: <span>Your GitHub Id</span>
+                  <Link to={githubId}>GitHub</Link>
                 </h2>
               </div>
 
@@ -37,52 +81,55 @@ const ResumeLayout = () => {
                 <h1 className="flex justify-center items-center mt-20 text-4xl font-semibold">
                   A Quote
                 </h1>
-                <span className="text-xl">Life is never easy</span>
+                <span className="text-xl">{aquote}</span>
               </div>
             </div>
             <div className="flex flex-col col-span-2 mt-8">
               <div className=" m-4">
                 <h1 className="text-4xl mr-4 font-bold">Summary</h1>
-                <p className="mt-2 tracking-wide">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab
-                  temporibus, impedit sunt illum et omnis optio excepturi
-                  accusantium molestiae aspernatur repellendus voluptate neque
-                  at sit. Lorem ipsum, dolor sit amet consectetur adipisicing
-                  elit. Quia libero amet aliquid vitae, recusandae dignissimos
-                  sed consequatur iste nemo eveniet, expedita totam inventore
-                  cum laborum.
-                </p>
-              <div  >
-
-                <h1 className="text-4xl mr-4 font-bold mt-8">Education</h1>
-                <div className="mt-4 space-y-2">
-                <p>College Name</p>
-                <p>Degree, Graduation Year(2020-2024)</p>
-
-                </div>
-              </div>
-              <div  >
-
-                <h1 className="text-4xl mr-4 font-bold mt-8">Experience</h1>
-                <div className="mt-4 space-y-2">
-                <p>Organization Name</p>
-                    <p>Role</p>
+                <p className="mt-2 tracking-wide">{aboutme}</p>
+                <div>
+                  <h1 className="text-4xl mr-4 font-bold mt-8">Education</h1>
+                  <div className="mt-4 space-y-2">
+                    <p>{collegeName}</p>
                     <p>
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                      Facilis hic ipsa aliquid assumenda voluptatum provident
-                      quasi placeat, asperiores necessitatibus odit voluptatibus
-                      eligendi iure minus totam quod non aliquam tempora
-                      laboriosam, sequi voluptates culpa. Blanditiis enim sunt
-                      facilis. Praesentium illo, magni minus necessitatibus quae
-                      beatae qui, inventore dolorum sint deleniti minima.
+                      {degree}, Graduation Year : {gradYear}
                     </p>
+                  </div>
+                  <div className="mt-2">
+                    {cgpa}
+                  </div>
+                </div>
+                <div>
+                  <h1 className="text-4xl mr-4 font-bold mt-8">Experience</h1>
+                  <div className="mt-4 space-y-2">
+                    <p>{experienceOrg}</p>
+                    <p>{role}</p>
+                    <div className="flex space-x-2">
+                    <p><span className="font-bold">From: </span>{expFrom}</p>
 
+                    <p><span className="font-bold">To: </span> {expTo}</p>
+                    </div>
+                    <p>{exp}</p>
+                  </div>
+                </div>
+                <div className="grid grid-col-2">
+                  <div className="">
+                    <h1 className="text-4xl mr-4 font-bold mt-8">Languages</h1>
+                    <div className="mt-4 space-y-2">
+                      <p>{langKnow}</p>
+                    </div>
+                  </div>
+                  <div>
+                    <h1 className="text-4xl mr-4 font-bold mt-8">
+                      Technical Skills
+                    </h1>
+                    <div className="mt-4 space-y-2">
+                      <p>{techStack}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-                
-            
-            
-            </div>
             </div>
           </div>
         </div>
