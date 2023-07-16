@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
+import ReactToPrint from 'react-to-print';
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import DeleteIcon from '@mui/icons-material/Delete';
-import img from '../assets/img.jpg'
+import DownloadIcon from '@mui/icons-material/Download';
+import img from '../assets/pp.png'
 import { Link } from "react-router-dom";
 
 const ResumeLayout = ({
+  
   profile: {
-    
+    id,
     firstname,
     lastname,
     registration,
@@ -27,25 +30,42 @@ const ResumeLayout = ({
     expFrom,
     expTo,
     exp,
-  },
+  },deleteProfile,editProfile
 }) => {
+  const resumeRef=useRef();
   return (
     <>
       <div className="bg-gradient-to-t from-[#392d69] to-[#b57bee] mx-auto">
         <div className="flex justify-end items-end space-x-4 mr-8 -mb-8">
           <div className="relative flex  justify-end item-end">
             <div className=" bg-white p-2 rounded-md ">
-              <ModeEditIcon />
+             
+              
+              <ModeEditIcon onClick={()=>editProfile(id)}/>
+              
             </div>
           </div>
           <div className="relative flex  justify-end item-end">
             <div className=" bg-white p-2 rounded-md ">
-              <DeleteIcon/>
+              
+              <DeleteIcon onClick={()=>deleteProfile(id)}/>
             </div>
           </div>
-         
+          <div className="relative flex  justify-end item-end">
+            <div className=" bg-white p-2 rounded-md ">
+            <ReactToPrint
+          trigger={() => {
+            
+            return <DownloadIcon />;
+          }}
+          content={() => resumeRef.current}
+        />
+              
+            </div>
+          </div>
+
         </div>
-        <div className="flex">
+        <div className="flex" ref={resumeRef}>
           <div className=" grid grid-cols-3 m-8 mt-12 h-full  bg-white rounded-lg">
             <div className="col-span-1 bg-[#052f5f] text-white rounded-l-lg">
               <div className="flex justify-center items-center ml-8 p-6 ">
@@ -106,9 +126,9 @@ const ResumeLayout = ({
                     <p>{experienceOrg}</p>
                     <p>{role}</p>
                     <div className="flex space-x-2">
-                    <p><span className="font-bold">From: </span>{expFrom}</p>
+                      <p><span className="font-bold">From: </span>{expFrom}</p>
 
-                    <p><span className="font-bold">To: </span> {expTo}</p>
+                      <p><span className="font-bold">To: </span> {expTo}</p>
                     </div>
                     <p>{exp}</p>
                   </div>

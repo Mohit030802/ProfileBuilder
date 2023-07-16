@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const initialState={
   firstname:'',
@@ -23,11 +23,12 @@ const initialState={
   exp:'',
   
 }
-const ResumeForm = ({onAdd}) => {
+const ResumeForm = ({onAdd,editableProfile}) => {
   const [profile,setProfile]=useState(initialState);
   function handleSubmit(e){
     onAdd(profile)
     e.preventDefault();
+    setProfile(initialState)
     // console.log(profile)
   }
   function handleChange(e){
@@ -35,6 +36,12 @@ const ResumeForm = ({onAdd}) => {
     setProfile({...profile,[e.target.name]:e.target.value})
     // console.log(profile)
   }
+  useEffect(()=>{
+    if(editableProfile){
+
+      setProfile(editableProfile);
+    }
+  },[editableProfile])
 
   return (
     <div className="">
@@ -69,6 +76,7 @@ const ResumeForm = ({onAdd}) => {
                         type="text"
                         onChange={handleChange}
                         name="firstname"
+                        value={profile.firstname}
                         className="border-0 px-3 py-3  text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       />
                     </div>
@@ -81,6 +89,7 @@ const ResumeForm = ({onAdd}) => {
                       <input
                       onChange={handleChange}
                       name="lastname"
+                      value={profile.lastname}
                         type="text"
                         className="border-0 px-3 py-3 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       />
@@ -95,6 +104,7 @@ const ResumeForm = ({onAdd}) => {
                         <input
                          onChange={handleChange}
                          name="registration"
+                         value={profile.registration}
                           type="text"
                           className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         />
@@ -106,6 +116,7 @@ const ResumeForm = ({onAdd}) => {
                         <input
                          onChange={handleChange}
                          name="phoneNo"
+                         value={profile.phoneNo}
                           type="Number"
                           className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         />
@@ -129,6 +140,7 @@ const ResumeForm = ({onAdd}) => {
                         <input
                         onChange={handleChange}
                         name="langKnow"
+                        value={profile.langKnow}
                           type="text"
                           className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         />
@@ -140,6 +152,7 @@ const ResumeForm = ({onAdd}) => {
                         <input
                          onChange={handleChange}
                          name="techStack"
+                         value={profile.techStack}
                           type="text"
                           className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         />
@@ -154,6 +167,7 @@ const ResumeForm = ({onAdd}) => {
                       <textarea
                       onChange={handleChange}
                       name="aboutme"
+                      value={profile.aboutme}
                         type="text"
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         rows="4"
@@ -169,6 +183,7 @@ const ResumeForm = ({onAdd}) => {
                       <textarea
                       onChange={handleChange}
                       name="aquote"
+                      value={profile.aquote}
                         type="text"
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         rows="2"
@@ -191,6 +206,7 @@ const ResumeForm = ({onAdd}) => {
                     <input
                      onChange={handleChange}
                      name="emailAdd"
+                     value={profile.emailAdd}
                       type="email"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     />
@@ -206,6 +222,7 @@ const ResumeForm = ({onAdd}) => {
                         <input
                         onChange={handleChange}
                         name="linkedIn"
+                        value={profile.linkedIn}
                           type="text"
                           className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         />
@@ -217,6 +234,7 @@ const ResumeForm = ({onAdd}) => {
                         <input
                          onChange={handleChange}
                          name="githubId"
+                         value={profile.githubId}
                           type="text"
                           className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         />
@@ -238,6 +256,7 @@ const ResumeForm = ({onAdd}) => {
                         <input
                          onChange={handleChange}
                          name="collegeName"
+                         value={profile.collegeName}
                           type="text"
                           className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         />
@@ -249,6 +268,7 @@ const ResumeForm = ({onAdd}) => {
                         <input
                         onChange={handleChange}
                         name="gradYear"
+                        value={profile.gradYear}
                           type="Number"
                           className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         />
@@ -266,6 +286,7 @@ const ResumeForm = ({onAdd}) => {
                         <input
                         onChange={handleChange}
                         name="degree"
+                        value={profile.degree}
                           type="text"
                           className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         />
@@ -276,6 +297,7 @@ const ResumeForm = ({onAdd}) => {
                         </label>
                         <input
                         onChange={handleChange}
+                        value={profile.cgpa}
                         name="cgpa"
                           type="Number"
                           className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
@@ -298,6 +320,7 @@ const ResumeForm = ({onAdd}) => {
                         <input
                          onChange={handleChange}
                          name="experienceOrg"
+                         value={profile.experienceOrg}
                           type="text"
                           className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         />
@@ -308,6 +331,7 @@ const ResumeForm = ({onAdd}) => {
                         </label>
                         <input
                         onChange={handleChange}
+                        value={profile.role}
                         name="role"
                           type="text"
                           className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
@@ -326,6 +350,7 @@ const ResumeForm = ({onAdd}) => {
                         <input
                         onChange={handleChange}
                         name="expFrom"
+                        value={profile.expFrom}
                           type="date"
                           className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         />
@@ -337,6 +362,7 @@ const ResumeForm = ({onAdd}) => {
                         <input
                          onChange={handleChange}
                          name="expTo"
+                         value={profile.expTo}
                           type="date"
                           className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         />
@@ -350,6 +376,7 @@ const ResumeForm = ({onAdd}) => {
                         <textarea
                         onChange={handleChange}
                         name="exp"
+                        value={profile.exp}
                           type="text"
                           className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                           rows="4"
