@@ -3,11 +3,12 @@ import ResumeForm from './ResumeForm'
 import ResumeLayout from './ResumeLayout'
 import {profileDb} from '../data/data'
 
-const Resume = ({deleteProfile,editProfile}) => {
+const Resume = ({deleteProfile,editProfile,handleImageChange}) => {
   
   
   const [profiled,setProfiled]=useState(profileDb)
   const [editableProfile,setEditableProfile]=useState(null);
+
   function onAdd(profile){
     setProfiled([{...profile,id:profiled.length+1}])
     
@@ -23,6 +24,7 @@ const Resume = ({deleteProfile,editProfile}) => {
     // console.log(profiled.find(profile=>profile.id===id))
 
   }
+  
 
   
 
@@ -30,7 +32,7 @@ const Resume = ({deleteProfile,editProfile}) => {
   return (
     <>
     
-      <ResumeForm onAdd={onAdd} editableProfile={editableProfile}/>
+      <ResumeForm onAdd={onAdd} editableProfile={editableProfile} />
       
      {
       profiled.map((profile)=>

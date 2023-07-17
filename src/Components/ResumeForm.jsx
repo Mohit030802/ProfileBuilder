@@ -26,7 +26,7 @@ const initialState={
 }
 const ResumeForm = ({onAdd,editableProfile}) => {
   const [profile,setProfile]=useState(initialState);
-  const [image,setImage]=useState(null);
+  
   function handleSubmit(e){
     onAdd(profile)
     e.preventDefault();
@@ -38,7 +38,7 @@ const ResumeForm = ({onAdd,editableProfile}) => {
     setProfile({...profile,[e.target.name]:e.target.value})
     console.log(profile)
   }
- 
+  
   useEffect(()=>{
     if(editableProfile){
 
@@ -48,7 +48,7 @@ const ResumeForm = ({onAdd,editableProfile}) => {
 
   return (
     <div className="">
-      <div className="flex bg-gradient-to-b from-[#392d69] to-[#b57bee] mx-auto">
+      <div className="flex bg-gradient-to-b from-[#0f0c29] via-[#302b63] to-[#24243e] mx-auto">
         <div className="w-full lg:w-8/12 px-4 mx-auto mt-6">
           <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
             <div className="rounded-t  mb-0 px-6 py-6">
@@ -131,12 +131,12 @@ const ResumeForm = ({onAdd,editableProfile}) => {
                           className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         />
                       </div>
-                      {/* <div className="relative w-full mb-3 ">
+                      <div className="relative w-full mb-3 ">
                         <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
                           Upload Image
                         </label>
                         <input
-                         onChange={handleChange}
+                        
                          name="img"
                          
                           type="file"
@@ -144,7 +144,7 @@ const ResumeForm = ({onAdd,editableProfile}) => {
                           className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         />
                       </div>
-                       */}
+                      
                     </div>
                   </div>
                 </div>

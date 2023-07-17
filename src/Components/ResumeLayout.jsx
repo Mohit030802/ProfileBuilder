@@ -38,7 +38,7 @@ const ResumeLayout = ({
 
   return (
     <>
-      <div className="bg-gradient-to-t from-[#392d69] to-[#b57bee] mx-auto">
+      <div className="bg-gradient-to-t from-[#0f0c29] via-[#302b63] to-[#24243e] mx-auto">
         <div className="flex justify-end items-end space-x-4 mr-8 -mb-8">
           <div className="relative flex  justify-end item-end">
             <div className=" bg-white p-2 rounded-md ">
