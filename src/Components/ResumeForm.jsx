@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-
+import img from '../assets/pp.png'
 const initialState={
+  img:{img},
   firstname:'',
   lastname:'',
   registration:'',
@@ -25,6 +26,7 @@ const initialState={
 }
 const ResumeForm = ({onAdd,editableProfile}) => {
   const [profile,setProfile]=useState(initialState);
+  const [image,setImage]=useState(null);
   function handleSubmit(e){
     onAdd(profile)
     e.preventDefault();
@@ -34,8 +36,9 @@ const ResumeForm = ({onAdd,editableProfile}) => {
   function handleChange(e){
     // console.log(e.target.name,e.target.value);
     setProfile({...profile,[e.target.name]:e.target.value})
-    // console.log(profile)
+    console.log(profile)
   }
+ 
   useEffect(()=>{
     if(editableProfile){
 
@@ -53,12 +56,7 @@ const ResumeForm = ({onAdd,editableProfile}) => {
                 <h6 className="text-blueGray-700 text-xl font-bold">
                  Time to make Best profile
                 </h6>
-                <button
-                  className="bg-[#392d69] text-white active:bg-[#b57bee] font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                  type="button"
-                >
-                  Download
-                </button>
+                
               </div>
             </div>
             <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
@@ -99,6 +97,18 @@ const ResumeForm = ({onAdd,editableProfile}) => {
                     <div className="flex space-x-4">
                       <div className="relative w-full mb-3">
                         <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                          Domain
+                        </label>
+                        <input
+                         onChange={handleChange}
+                         name="domain"
+                         value={profile.domain}
+                          type="text"
+                          className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        />
+                      </div>
+                      <div className="relative w-full mb-3">
+                        <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
                           Registraion Number
                         </label>
                         <input
@@ -121,6 +131,20 @@ const ResumeForm = ({onAdd,editableProfile}) => {
                           className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         />
                       </div>
+                      {/* <div className="relative w-full mb-3 ">
+                        <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                          Upload Image
+                        </label>
+                        <input
+                         onChange={handleChange}
+                         name="img"
+                         
+                          type="file"
+                          
+                          className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        />
+                      </div>
+                       */}
                     </div>
                   </div>
                 </div>

@@ -1,4 +1,4 @@
-import img from '../assets/img.jpg'
+import img from '../assets/pp.png'
 export const profileDb = [
   {
     id: 1,
@@ -7,6 +7,7 @@ export const profileDb = [
     lastname: "",
     registration: "{Your Registration Number}",
     phoneNo: "{Yout Phone Number}",
+    domain:"{Your Domain}",
     langKnow: "{Languages Known}",
     techStack: "{Technical Skills you know}",
     aboutme:

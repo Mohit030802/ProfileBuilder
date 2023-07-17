@@ -11,6 +11,7 @@ const Resume = ({deleteProfile,editProfile}) => {
   function onAdd(profile){
     setProfiled([{...profile,id:profiled.length+1}])
     
+    
   }
   function deleteProfile(id){
     // console.log("delete")
@@ -22,6 +23,8 @@ const Resume = ({deleteProfile,editProfile}) => {
     // console.log(profiled.find(profile=>profile.id===id))
 
   }
+
+  
 
   
   return (

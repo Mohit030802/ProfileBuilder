@@ -3,17 +3,19 @@ import ReactToPrint from 'react-to-print';
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import DeleteIcon from '@mui/icons-material/Delete';
 import DownloadIcon from '@mui/icons-material/Download';
-import img from '../assets/pp.png'
+import img1 from '../assets/pp.png'
 import { Link } from "react-router-dom";
 
 const ResumeLayout = ({
-  
+
   profile: {
     id,
+    img,
     firstname,
     lastname,
     registration,
     phoneNo,
+    domain,
     langKnow,
     techStack,
     aboutme,
@@ -30,37 +32,38 @@ const ResumeLayout = ({
     expFrom,
     expTo,
     exp,
-  },deleteProfile,editProfile
+  }, deleteProfile, editProfile
 }) => {
-  const resumeRef=useRef();
+  const resumeRef = useRef();
+
   return (
     <>
       <div className="bg-gradient-to-t from-[#392d69] to-[#b57bee] mx-auto">
         <div className="flex justify-end items-end space-x-4 mr-8 -mb-8">
           <div className="relative flex  justify-end item-end">
             <div className=" bg-white p-2 rounded-md ">
-             
-              
-              <ModeEditIcon onClick={()=>editProfile(id)}/>
-              
+
+
+              <ModeEditIcon onClick={() => editProfile(id)} />
+
             </div>
           </div>
           <div className="relative flex  justify-end item-end">
             <div className=" bg-white p-2 rounded-md ">
-              
-              <DeleteIcon onClick={()=>deleteProfile(id)}/>
+
+              <DeleteIcon onClick={() => deleteProfile(id)} />
             </div>
           </div>
           <div className="relative flex  justify-end item-end">
             <div className=" bg-white p-2 rounded-md ">
-            <ReactToPrint
-          trigger={() => {
-            
-            return <DownloadIcon />;
-          }}
-          content={() => resumeRef.current}
-        />
-              
+              <ReactToPrint
+                trigger={() => {
+
+                  return <DownloadIcon />;
+                }}
+                content={() => resumeRef.current}
+              />
+
             </div>
           </div>
 
@@ -69,23 +72,27 @@ const ResumeLayout = ({
           <div className=" grid grid-cols-3 m-8 mt-12 h-full  bg-white rounded-lg">
             <div className="col-span-1 bg-[#052f5f] text-white rounded-l-lg">
               <div className="flex justify-center items-center ml-8 p-6 ">
+
                 <img
                   className="w-[70%] h-[70%] rounded-[50%] shadow-md"
-                  src={img}
+                  id="image"
+                  src={img1}
                   alt="Image Not Found"
                 />
+
               </div>
               <div className="flex flex-col font-serif font-semibold  justify-center items-center">
-                <div className="flex flex-col space-y-3 items-center">
+                <div className="flex flex-col space-y-3 items-center text-center">
                   <h2 className="text-4xl">
                     {firstname} {lastname}
                   </h2>
                   <span>{registration}</span>
                   <span>{phoneNo}</span>
+                  <span> A {domain}</span>
                 </div>
               </div>
               <div className="flex flex-col items-center mt-20 font-serif font-semibold space-y-3">
-                <h1 className="text-4xl">Contact Me at</h1>
+                <h1 className="text-4xl text-center">Contact Me at</h1>
                 <span>{emailAdd}</span>
 
                 <h2>
