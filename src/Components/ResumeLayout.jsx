@@ -70,7 +70,7 @@ const ResumeLayout = ({
         </div>
         <div className="flex" ref={resumeRef}>
           <div className=" grid grid-cols-3 m-8 mt-12 h-full  bg-white rounded-lg">
-            <div className="col-span-1 bg-[#052f5f] text-white rounded-l-lg">
+            <div className="col-span-1 bg-[#025464] text-white rounded-l-lg">
               <div className="flex justify-center items-center ml-8 p-6 ">
 
                 <img
