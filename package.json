@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "resume-maker",
   "private": true,
   "version": "0.0.0",
@@ -32,5 +33,24 @@
     "postcss": "^8.4.25",
     "tailwindcss": "^3.3.2",
     "vite": "^4.4.0"
+=======
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Resume Maker",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+>>>>>>> da59d8b (server)
   }
 }
